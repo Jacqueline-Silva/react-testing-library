@@ -1,20 +1,20 @@
 import React from 'react';
 import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import renderWithRouter from '../services/RenderWithRouter';
+import renderWithRouter from './renderWithRouter';
 import App from '../App';
 
 describe('Teste se o componente App.js', () => {
   it('contém um conjunto fixo de links de navegação', () => {
     renderWithRouter(<App />);
 
-    const primeiroLink = screen.getByText(/home/i);
-    const segundoLink = screen.getByText(/about/i);
-    const terceiroLink = screen.getByText(/favorite pokémons/i);
+    const homeLink = screen.getByText(/home/i);
+    const aboutLink = screen.getByText(/about/i);
+    const favoriteLink = screen.getByText(/favorite pokémons/i);
 
-    expect(primeiroLink).toBeInTheDocument();
-    expect(segundoLink).toBeInTheDocument();
-    expect(terceiroLink).toBeInTheDocument();
+    expect(homeLink).toBeInTheDocument();
+    expect(aboutLink).toBeInTheDocument();
+    expect(favoriteLink).toBeInTheDocument();
   });
 
   it('Ao clicar no link Home é redirecionado para página inicial', () => {
